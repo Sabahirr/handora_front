@@ -1,74 +1,80 @@
 import { useSuggested } from "./action/suggested.query";
 import { usesuggestedStyle } from "./suggested.style";
-const SuggestedComponent = () => {
-    const clasess=usesuggestedStyle()
-    const products = [
-        {
-          id: 1,
-          name: 'Basic Tee',
-          href: '#',
-          imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg',
-          imageAlt: "Front of men's Basic Tee in black.",
-          price: '$35',
-          color: 'Black',
-        },
-        {
-          id: 2,
-          name: 'Basic Tee',
-          href: '#',
-          imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg',
-          imageAlt: "Front of men's Basic Tee in white.",
-          price: '$35',
-          color: 'Aspen White',
-        },
-        {
-          id: 3,
-          name: 'Basic Tee',
-          href: '#',
-          imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-03.jpg',
-          imageAlt: "Front of men's Basic Tee in dark gray.",
-          price: '$35',
-          color: 'Charcoal',
-        },
-        {
-          id: 4,
-          name: 'Artwork Tee',
-          href: '#',
-          imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-04.jpg',
-          imageAlt: "Front of men's Artwork Tee in peach with white and brown dots forming an isometric cube.",
-          price: '$35',
-          color: 'Iso Dots',
-        },
-    ]
-    const { data } = useSuggested()
-    console.log(data);
-  return (
-   <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900 text-[50px]">Customers also purchased</h2>
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {data?.map((product:any) => (
-            <div key={product.id} className="group relative">
-              <img
-                src={product.product_image}
-                className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
-              />
-              <div className="mt-4 flex justify-between">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                    <a href="#">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.product_name}
-                    </a>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.product_category}</p>
+const SuggestedComponent = () => {
+  const classes = usesuggestedStyle();
+  const { data } = useSuggested();
+
+  return (
+    <div className="bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-16">
+        <h2 className="text-[50px] font-bold text-gray-900 mb-10">
+          Təklif olunan məhsullar
+        </h2>
+
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={4}
+          spaceBetween={24}
+          loop={true}
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false,
+          }}
+          speed={800}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 4 },
+          }}
+        >
+          {data?.map((product: any) => (
+            <SwiperSlide key={product.id}>
+              <div className="group relative">
+                <div className="relative h-80 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
+                  <img
+                    src={product.image_urls[0]}
+                    className="h-full w-full object-cover object-center"
+                  />
+                  {product.is_sale && (
+                    <div className="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">
+                      ENDİRİM
+                    </div>
+                  )}
                 </div>
-                <p className="text-sm font-medium text-gray-900">{product.product_price} ₼</p>
+
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-sm text-gray-900 font-medium text-[16px]">
+                      {product.name_az}
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500 ">
+                      {product.brand.name}
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-end">
+                    {product.is_sale && product.discount_price > 0 ? (
+                      <>
+                        <span className="text-xs text-gray-400 line-through decoration-gray-500">
+                          {product.price} ₼
+                        </span>
+                        <span className="text-sm font-bold text-red-600">
+                          {product.discount_price} ₼
+                        </span>
+                      </>
+                    ) : (
+                      <span className="text-sm font-bold text-gray-900">
+                        {product.price} ₼
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </div>
   );

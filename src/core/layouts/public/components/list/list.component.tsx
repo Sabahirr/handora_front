@@ -9,11 +9,11 @@ const { Title, Paragraph } = Typography;
 
 const useStyles = createStyles(({ token }) => ({
   main_div:{
-    ul:{
-      li:{
-        marginLeft:"1.5rem !important",
-      }
-    }
+    // ul:{
+    //   li:{
+    //     marginLeft:"1.5rem !important",
+    //   }
+    // }
   },
 
   navigationPopup: {
@@ -173,23 +173,25 @@ const App: React.FC = () => {
 
   return (
     <div className={`${styles.main_div}`}>
-    <ConfigProvider
-      theme={{
-        components: {
-          Menu: {
-            popupBg: '#fff',
-            horizontalItemSelectedColor: '#1677ff',
-            horizontalItemHoverColor: '#1677ff',
-          },
-          Typography: {
-            titleMarginBottom: 0,
-            titleMarginTop: 0,
-          },
-        },
-      }}
-    >
-      <Menu mode="horizontal" items={menuItems} popupRender={popupRender} />
-    </ConfigProvider>
+      <div className='mx-auto max-w-2xl px-4  sm:px-6 lg:max-w-7xl lg:px-8 '>
+        <ConfigProvider
+              theme={{
+                components: {
+                  Menu: {
+                    popupBg: '#fff',
+                    horizontalItemSelectedColor: '#1677ff',
+                    horizontalItemHoverColor: '#1677ff',
+                  },
+                  Typography: {
+                    titleMarginBottom: 0,
+                    titleMarginTop: 0,
+                  },
+                },
+              }}
+            >
+              <Menu mode="horizontal" items={menuItems} popupRender={popupRender} />
+            </ConfigProvider>
+      </div>
     
     </div>
     

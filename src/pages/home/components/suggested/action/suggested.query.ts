@@ -3,7 +3,7 @@ import { getSuggesteddService } from '../action/suggested.service';
 
 export const useSuggested = () => {
     return useQuery({
-        queryKey: ['news'], 
+        queryKey: ['suggest'], 
         queryFn: () => getSuggesteddService(), 
     });
 };
