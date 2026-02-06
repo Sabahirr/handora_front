@@ -6,62 +6,72 @@
   "product": [
     {
       "id":1,
-      "product_name":"lorem ipsum",
+      "name_az":"lorem ipsum",
       "product_price":100,
       "discount":20,
+      "discount_price":10,
       "product_image":"https://handmade.com/media-library/image.jpg?width=1000&id=54690766",
       "product_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "product_category":"electronics",
       "product_stock":50,
-      "suggested":true
+      "suggested":true,
+      "brand_name":"by Ilham"
 
     },
     {
       "id":2,
-      "product_name":"lorem ipsum",
+      "name_az":"lorem ipsum",
       "product_price":100,
       "discount":20,
+      "discount_price":10,
       "product_image":"https://handmade.com/media-library/image.jpg?width=1000&id=54690766",
       "product_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "product_category":"electronics",
       "product_stock":50,
-      "suggested":true
+      "suggested":true,
+      "brand_name":"by Ilham"
 
     },
     {
       "id":3,
-      "product_name":"lorem ipsum",
+      "name_az":"lorem ipsum",
       "product_price":100,
       "discount":20,
+      "discount_price":10,
       "product_image":"https://handmade.com/media-library/image.jpg?width=1000&id=54690766",
       "product_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "product_category":"electronics",
       "product_stock":50,
-      "suggested":true
+      "suggested":true,
+      "brand_name":"by Ilham"
 
     },
     {
       "id":4,
-      "product_name":"lorem ipsum",
+      "name_az":"lorem ipsum",
       "product_price":100,
       "discount":20,
+      "discount_price":10,
       "product_image":"https://handmade.com/media-library/image.jpg?width=1000&id=54690766",
       "product_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "product_category":"electronics",
       "product_stock":50,
-      "suggested":true
+      "suggested":true,
+      "brand_name":"by Ilham"
 
     },
     {
       "id":5,
-      "product_name":"lorem ipsum",
+      "name_az":"lorem ipsum",
       "product_price":1,
       "discount":20,
+      "discount_price":10,
       "product_image":"https://handmade.com/media-library/image.jpg?width=1000&id=54690766",
       "product_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "product_category":"electronics",
       "product_stock":50,
-      "suggested":true
+      "suggested":true,
+      "brand_name":"by Ilham"
 
     }
   ]

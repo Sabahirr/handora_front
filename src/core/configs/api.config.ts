@@ -1,3 +1,4 @@
 export const API = {
-    products: '/api/products',
+    // products: '/api/products',  real 
+    product:'/product'
 };

@@ -6,8 +6,9 @@ import {
   UserOutlined,
   LogoutOutlined
 } from "@ant-design/icons"
-import hand from '../../../../../assets/image/icons/hand.svg'
+import hand from '../../../../../assets/image/icons/Group 1.svg'
 import { useNavStyles } from './nav.style'
+import { useSuggested } from '../../../../../pages/home/components/suggested/action/suggested.query'
 
 const NavComponet = () => {
 
@@ -33,32 +34,32 @@ const NavComponet = () => {
 
   return (
     <div className={classes.nav_mainDiv}>
- <nav className={`mx-auto max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8 ${classes.nav}`}>
-      <div className='logo_div'>
-        <img className={classes.handora_logo} src={hand} alt="logo" />
-      </div>
+        <nav className={`mx-auto max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8 ${classes.nav}`}>
+            <div className='logo_div'>
+              <img className={classes.handora_logo} src={hand} alt="logo" />
+            </div>
 
-      <div className={classes.search_div}>
-        <Input style={{ padding:"0.7rem", borderRadius:"20px" }} placeholder="Axtar" suffix={<SearchOutlined />} />
-      </div>
+            <div className={classes.search_div}>
+              <Input style={{ padding:"0.7rem", borderRadius:"20px" }} placeholder="Axtar" suffix={<SearchOutlined />} />
+            </div>
 
-      <div className={classes.person}>
-        <div className="badge">
-          <Badge count={3}>
-            <ShoppingCartOutlined style={{ fontSize: 24 ,cursor: "pointer" }} />
-          </Badge>
-        </div>
+            <div className={classes.person}>
+            <div className="badge">
+            <Badge count={3}>
+              <ShoppingCartOutlined style={{ fontSize: 24 ,cursor: "pointer" }} />
+            </Badge>
+          </div>
 
-        <div className='profil'>
-          <Dropdown menu={{ items }} placement="bottomRight">
-           <Avatar
-  icon={<UserOutlined />}
-  style={{
-    background: "#fff",
-    color: "#000",
-    border: "1px solid #e5e5e5"
-  }}
-/>
+          <div className='profil'>
+            <Dropdown menu={{ items }} placement="bottomRight">
+             <Avatar
+                icon={<UserOutlined />}
+                style={{
+                  background: "#fff",
+                  color: "#000",
+                  border: "1px solid #e5e5e5"
+                }}
+              />
           </Dropdown>
         </div>
       </div>
