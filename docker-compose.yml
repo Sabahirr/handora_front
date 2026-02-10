@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "80:4173"   # Server 80 portunu container'ın 4173 portuna yönlendir
+    restart: always
