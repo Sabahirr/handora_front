@@ -27,4 +27,4 @@ COPY --from=build /app/dist ./dist
 EXPOSE 4173
 
 # Container çalışınca Vite preview başlasın
-CMD ["npx", "vite", "preview", "--port", "4173", "--host"]
+CMD ["npx", "vite", "preview", "--port", "80", "--host"]
