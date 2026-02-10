@@ -24,7 +24,7 @@ RUN npm install --production
 COPY --from=build /app/dist ./dist
 
 # Vite preview server için port aç
-EXPOSE 4173
+EXPOSE 80
 
 # Container çalışınca Vite preview başlasın
 CMD ["npx", "vite", "preview", "--port", "80", "--host"]
