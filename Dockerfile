@@ -1,30 +1,23 @@
-# 1. Build stage
-FROM node:20-alpine AS build
+# 1. Build Stage
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# package dosyalarını kopyala ve install et
 COPY package*.json ./
 RUN npm install
 
-# Tüm projeyi kopyala ve build et
 COPY . .
 RUN npm run build
 
-# 2. Production stage
-FROM node:20-alpine
+# 2. Production Stage
+FROM nginx:alpine
 
-WORKDIR /app
+# Statik build-i nginx-ə köçür
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Production bağımlılıklarını yükle
-COPY package*.json ./
-RUN npm install --production
+# Front-end routing varsa /index.html-ə fallback
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Build edilmiş dosyaları kopyala
-COPY --from=build /app/dist ./dist
-
-# Vite preview server için port aç
 EXPOSE 80
 
-# Container çalışınca Vite preview başlasın
-CMD ["npx", "vite", "preview", "--port", "80", "--host"]
+CMD ["nginx", "-g", "daemon off;"]
